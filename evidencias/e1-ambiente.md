@@ -1,3 +1,4 @@
+HEAD
 ## E00.1 — Reprodutibilidade do ambiente
 
 https://github.com/joseildo-ixel/dpw-exercicios/blob/8ee593a94866c9d417297c354e0f854814042d54/.gitignore#L1
@@ -31,3 +32,5 @@ O arquivo `pnpm-lock.yaml` é versionado no repositório porque ele registra as 
 ## Commit de configuração (.gitattributes)
 
 https://github.com/joseildo-ixel/dpw-exercicios/commit/2e3abf5
+=======
+>>>>>>> parent of 21bb69b (docs: evidência de reprodutibilidade do ambiente (E00.1))
