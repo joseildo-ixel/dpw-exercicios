@@ -1,15 +1,14 @@
-HEAD
 ## E00.1 — Reprodutibilidade do ambiente
 
 https://github.com/joseildo-ixel/dpw-exercicios/blob/8ee593a94866c9d417297c354e0f854814042d54/.gitignore#L1
 
 Comando executado:
-\`\`\`powershell
+```powershell
 Remove-Item -Recurse -Force node_modules ; pnpm install --frozen-lockfile ; git status --short
-\`\`\`
+```
 
 Saída:
-\`\`\`
+```
 ✓ Lockfile passes supply-chain policies (verified 7m ago)
 Lockfile is up to date, resolution step is skipped
 Packages: +1
@@ -21,7 +20,7 @@ Progress: resolved 1, reused 1, downloaded 0, added 1, done
 devDependencies:
 + prettier 3.9.6
 Done in 1.3s using pnpm v11.23.0
-\`\`\`
+```
 
 ## Lock vs node_modules
 
@@ -32,5 +31,3 @@ O arquivo `pnpm-lock.yaml` é versionado no repositório porque ele registra as 
 ## Commit de configuração (.gitattributes)
 
 https://github.com/joseildo-ixel/dpw-exercicios/commit/2e3abf5
-=======
->>>>>>> parent of 21bb69b (docs: evidência de reprodutibilidade do ambiente (E00.1))
