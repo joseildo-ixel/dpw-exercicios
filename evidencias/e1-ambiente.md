@@ -7,7 +7,7 @@ Comando executado:
 Remove-Item -Recurse -Force node_modules ; pnpm install --frozen-lockfile ; git status --short
 ```
 
-Saída:
+Saída do `pnpm install`:
 ```
 ✓ Lockfile passes supply-chain policies (verified 7m ago)
 Lockfile is up to date, resolution step is skipped
@@ -22,12 +22,17 @@ devDependencies:
 Done in 1.3s using pnpm v11.23.0
 ```
 
+Saída de `git status --short` (vazia - prova de reprodutibilidade):
+```
+(sem saída - working tree clean)
+```
+
 ## Lock vs node_modules
 
-O arquivo `pnpm-lock.yaml` é versionado no repositório porque ele registra as versões exatas de cada dependência (e de suas subdependências), garantindo que qualquer pessoa que clone o projeto instale exatamente os mesmos pacotes, evitando o problema de "funciona na minha máquina". Já a pasta `node_modules` não é versionada porque ela é gerada automaticamente a partir do `pnpm-lock.yaml` — pode ser apagada e recriada a qualquer momento com `pnpm install --frozen-lockfile`, sem perder nada, o que a torna redundante e desnecessariamente pesada para manter no controle de versão.
+O arquivo `pnpm-lock.yaml` é versionado no repositório porque ele registra as versões exatas de cada dependência (e de suas subdependências), garantindo que qualquer pessoa que clone o projeto possa reinstalar o mesmo ambiente com as mesmas versões. O `node_modules/` NÃO é versionado porque é reconstruído automaticamente a partir do lock file — é um artefato descartável. Isso garante que o repositório seja leve e reprodutível em qualquer máquina.
 
 (Observação: o comando `git status --short` não imprimiu nenhuma linha, confirmando que recriar `node_modules` não gerou nenhuma alteração rastreada pelo git.)
 
 ## Commit de configuração (.gitattributes)
 
-https://github.com/joseildo-ixel/dpw-exercicios/commit/2e3abf5
+https://github.com/joseildo-ixel/dpw-exercicios/commit/2e3abf56722d4ca5bc1d1ca34df439f4859e1a3a
